@@ -1,0 +1,12 @@
+@(user_id: String, username: String)
+
+@layout("TTS") {
+<div class="container" ng-controller="AppCtrl" ng-app="app" ng-init="init('@user_id', '@username')">
+
+    <textarea id="text" name="text"></textarea>
+    <button class="btn btn-primary" ng-click="speak()">Kalbek!</button>
+    <button class="btn btn-default" ng-click="reset()">Isvalyti</button>
+</div>
+
+<script src="@routes.Assets.at("javascripts/main.js")" type="text/javascript"></script>
+}
