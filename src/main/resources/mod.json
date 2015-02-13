@@ -1,0 +1,19 @@
+{
+  // Java verticle
+  "main": "com.texttalk.frontend.TTSFrontendServer",
+  // mandatory fields
+  "description": "Text-Talk Frontend Server",
+  "licenses": ["The Apache Software License Version 2.0"],
+  "author": "Andrew Boss",
+  // Optional fields
+  "developers": ["Andrew Boss"],
+  "keywords": [
+    "tts",
+    "text-to-speech",
+    "text synthesis",
+    "vertx",
+    "java"
+  ],
+  "homepage": "http://www.text-talk.com",
+  "auto-redeploy": true
+}
