@@ -2,27 +2,27 @@
 
 /* testing page code only, you wont need this! */
 
-(function() {
+(function () {
 
-    $(function() {
+    $(function () {
         bindTestOptions();
     });
 
-    var bindTestOptions = function() {
+    var bindTestOptions = function () {
         resetTestOptions();
         $('.option').change(resetTestOptions);
     };
 
-    var resetTestOptions = function() {
+    var resetTestOptions = function () {
         // update test options
-        $('.option').each(function() {
+        $('.option').each(function () {
             var $this = $(this);
             $('body').toggleClass($this.val(), $this.prop('checked'));
         });
 
         // update byRow option
         var byRow = $('body').hasClass('test-rows');
-        $.each($.fn.matchHeight._groups, function() {
+        $.each($.fn.matchHeight._groups, function () {
             this.byRow = byRow;
         });
 

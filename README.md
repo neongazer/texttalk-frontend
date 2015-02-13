@@ -1,4 +1,3 @@
-texttalk-frontend
-=================
+# TextTalk Frontend Server
 
-TextTalk speech synthesis frontend website implementation. Fully nonblocking with redis, websockets and play framework
+Built with vert.x and SockJS

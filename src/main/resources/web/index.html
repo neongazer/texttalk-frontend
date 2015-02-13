@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title>Text-Talk Test</title>
+    <script src="js/sockjs-0.3.4.min.js"></script>
+    <script src="js/vertxbus-2.1.js"></script>
+</head>
+<body>
+
+<script>
+    window.onload = function () {
+
+        var eventBus = new vertx.EventBus("http://localhost:8080/tts");
+
+        var clientId = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+            return v.toString(16);
+        });
+
+        eventBus.onopen = function () {
+
+            eventBus.registerHandler("tts.service", function (message) {
+                clog("Connected to TTS service with client ID: " + message.clientId);
+            });
+
+            eventBus.send("tts.connect", { clientId: clientId }, function (reply) {
+                if (reply.status === 200) {
+
+                    document.getElementById("sendText").addEventListener("click", function () {
+                        var text = ttsText.value;
+                        eventBus.send("tts.send", { clientId: clientId, text: text });
+                    }, false);
+
+                    eventBus.registerHandler("tts.play", function (message) {
+                        clog(message);
+                    });
+                }
+            });
+
+        };
+    };
+</script>
+<h1>TTS Frontend Server</h1>
+
+<div id="usersContainer"></div>
+
+<div id="textContainer" class="hidden">
+    <h2>Text</h2>
+    <div id="history"></div>
+    <input type="text" id="ttsText" /> <button id="sendText">Send</button>
+</div>
+</body>
+</body>
+</html>
