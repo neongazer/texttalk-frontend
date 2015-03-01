@@ -1,19 +1,18 @@
 {
+
   // Java verticle
-  "main": "com.texttalk.frontend.TTSFrontendServer",
-  // mandatory fields
-  "description": "Text-Talk Frontend Server",
+  "main":"com.texttalk.frontend.TTSVerticle",
+
+  // Details for registering module with Vert.x
+  "description":"Text-Talk text-to-speech frontend server",
   "licenses": ["The Apache Software License Version 2.0"],
   "author": "Andrew Boss",
+
   // Optional fields
   "developers": ["Andrew Boss"],
-  "keywords": [
-    "tts",
-    "text-to-speech",
-    "text synthesis",
-    "vertx",
-    "java"
-  ],
+  "keywords": ["text-to-speech", "speech", "synthesis", "vertx", "vert.x", "java"],
   "homepage": "http://www.text-talk.com",
+
   "auto-redeploy": true
+
 }
